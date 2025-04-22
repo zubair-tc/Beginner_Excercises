@@ -4,23 +4,19 @@ class Program
 {
     static void Main()
     {
-        //Section 5 Excercise
-        ////  Q#1
+        // Q#1 - Check if number is between 1 and 10
         Console.Write("Enter a number between 1 and 10: ");
         int number = Convert.ToInt32(Console.ReadLine());
-
         if (number >= 1 && number <= 10)
             Console.WriteLine("Valid");
         else
             Console.WriteLine("Invalid");
 
-        ////  Q#2 
+        // Q#2 - Compare two numbers to find maximum or equality
         Console.Write("Enter first number: ");
         int num1 = Convert.ToInt32(Console.ReadLine());
-
         Console.Write("Enter second number: ");
         int num2 = Convert.ToInt32(Console.ReadLine());
-
         if (num1 > num2)
             Console.WriteLine($"Maximum is: {num1}");
         else if (num2 > num1)
@@ -28,7 +24,7 @@ class Program
         else
             Console.WriteLine("Both numbers are equal");
 
-        ////  Q#3 
+        // Q#3 - Determine image orientation
         Console.Write("Enter image width: ");
         int width = Convert.ToInt32(Console.ReadLine());
         Console.Write("Enter image height: ");
@@ -40,7 +36,7 @@ class Program
         else
             Console.WriteLine("Image is Square");
 
-        //  Q#4 
+        // Q#4 - Check speed against limit and assign demerit points
         Console.Write("Enter speed limit: ");
         int speedLimit = Convert.ToInt32(Console.ReadLine());
         Console.Write("Enter car speed: ");
@@ -53,12 +49,11 @@ class Program
         {
             int demeritPoints = (carSpeed - speedLimit) / 5;
             Console.WriteLine($"Demerit Points: {demeritPoints}");
-
             if (demeritPoints > 12)
                 Console.WriteLine("License Suspended");
         }
-        //Section 6 Excercise
-        //  Q#1
+
+        // Q#1 - Display message based on number of people who liked the post
         var names = new List<string>();
         while (true)
         {
@@ -66,7 +61,6 @@ class Program
             string userinput = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(userinput))
                 break;
-
             names.Add(userinput);
         }
         if (names.Count == 1)
@@ -76,7 +70,7 @@ class Program
         else if (names.Count > 2)
             Console.WriteLine($"{names[0]}, {names[1]} and {names.Count - 2} others like your post.");
 
-        ////  Q#2
+        // Q#2 - Reverse the user’s name
         Console.Write("Enter your name: ");
         string name = Console.ReadLine();
         char[] characters = name.ToCharArray();
@@ -89,13 +83,12 @@ class Program
         string reversedName = new string(reversed);
         Console.WriteLine("Reversed name: " + reversedName);
 
-        //  Q#3
+        // Q#3 - Ask user to enter 5 unique numbers and sort them
         var uniqueNumbers = new List<int>();
         while (uniqueNumbers.Count < 5)
         {
             Console.Write("Enter a unique number: ");
             int number1 = Convert.ToInt32(Console.ReadLine());
-
             bool alreadyExists = false;
             foreach (int n in uniqueNumbers)
             {
@@ -128,17 +121,15 @@ class Program
         foreach (var num in uniqueNumbers)
             Console.Write(num + " ");
 
-        ////  Q#4
+        // Q#4 - Accept multiple numbers until user quits, display only unique entries
         var enteredNumbers = new List<int>();
         var uniqueEntered = new List<int>();
         while (true)
         {
             Console.Write("Enter a number or type 'Quit' to exit: ");
             string userinput = Console.ReadLine();
-
             if (userinput.ToLower() == "quit")
                 break;
-
             int num = Convert.ToInt32(userinput);
             enteredNumbers.Add(num);
         }
@@ -160,7 +151,7 @@ class Program
         foreach (var num in uniqueEntered)
             Console.Write(num + " ");
 
-        ////  Q#5
+        // Q#5 - Get a list of numbers and return 3 smallest after validation
         while (true)
         {
             Console.Write("Enter a list of comma separated numbers: ");
@@ -192,32 +183,26 @@ class Program
             Console.Write("3 Smallest numbers: ");
             for (int i = 0; i < 3; i++)
                 Console.Write(list_of_numbers[i] + " ");
-
             break;
         }
-        //Section 8 Excercise
-        // Q#5
-        {
-            Console.Write("Enter a word: ");
-            string sentence = Console.ReadLine().ToLower();
-            int count = 0;
-            foreach (char c in sentence)
-            {
-                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
-                    count++;
-            }
-            Console.WriteLine(count);
-        }
 
-        //Q#2
+        // Q#5 - Count vowels in a word
+        Console.Write("Enter a word: ");
+        string sentence = Console.ReadLine().ToLower();
+        int count = 0;
+        foreach (char c in sentence)
+        {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+                count++;
+        }
+        Console.WriteLine(count);
+
+        // Q#2 - Check if input contains duplicate numbers
         Console.Write("Enter numbers separated by hyphen: ");
         string input_numbers = Console.ReadLine();
-
         if (string.IsNullOrWhiteSpace(input_numbers))
             return;
-
         string[] Parts = input_numbers.Split('-');
-
         for (int i = 0; i < Parts.Length; i++)
         {
             for (int j = i + 1; j < Parts.Length; j++)
@@ -229,23 +214,18 @@ class Program
                 }
             }
         }
-
         Console.WriteLine("No Duplicates");
 
-
-        //Q#4
+        // Q#4 - Convert words into PascalCase
         Console.Write("Enter words: ");
         string inputWords = Console.ReadLine();
-
         if (string.IsNullOrWhiteSpace(inputWords))
         {
             Console.WriteLine("Empty input");
             return;
         }
-
         string[] words = inputWords.ToLower().Split(' ');
         StringBuilder result = new StringBuilder();
-
         foreach (string word in words)
         {
             if (word.Length > 0)
@@ -254,25 +234,19 @@ class Program
                 result.Append(capitalized);
             }
         }
-
         Console.WriteLine(result.ToString());
 
-
-        //Q#1
+        // Q#1 - Check if numbers are consecutive
         Console.Write("Enter numbers separated by hyphen: ");
         string input = Console.ReadLine();
-
         string[] parts = input.Split('-');
         int[] numbers = new int[parts.Length];
-
         for (int i = 0; i < parts.Length; i++)
         {
             numbers[i] = Convert.ToInt32(parts[i]);
         }
-
         bool isAscending = true;
         bool isDescending = true;
-
         for (int i = 1; i < numbers.Length; i++)
         {
             if (numbers[i] != numbers[i - 1] + 1)
@@ -280,36 +254,29 @@ class Program
             if (numbers[i] != numbers[i - 1] - 1)
                 isDescending = false;
         }
-
         if (isAscending || isDescending)
             Console.WriteLine("Consecutive");
         else
             Console.WriteLine("Not Consecutive");
 
-
-        //Q#3
+        // Q#3 - Validate 24-hour time format
         Console.Write("Enter time in 24hour format (HH:mm): ");
         string inputTime = Console.ReadLine();
-
         if (string.IsNullOrWhiteSpace(inputTime))
         {
             Console.WriteLine("Invalid Time");
             return;
         }
-
         string[] sepratedParts = input.Split(':');
-
         if (parts.Length != 2)
         {
             Console.WriteLine("Invalid Time");
             return;
         }
-
         try
         {
             int hour = int.Parse(sepratedParts[0]);
             int minute = int.Parse(sepratedParts[1]);
-
             if (hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59)
             {
                 Console.WriteLine("Ok");
@@ -324,9 +291,7 @@ class Program
             Console.WriteLine("Invalid Time");
         }
 
-
-        //Excercise 9
-        //Q#1&2
+        // Q#1 & Q#2 - Read a file and find word count and longest word
         string path = @"G:\Zubair Data\InternShip Data\sample.txt";
         FileInfo file = new FileInfo(path);
         if (!file.Exists)
@@ -342,13 +307,9 @@ class Program
         foreach (string word in rawwords)
         {
             if (word != "") wordcount++;
-
             if (word.Length > longestword.Length) longestword = word;
-
         }
         Console.WriteLine("Total words are:" + wordcount);
         Console.WriteLine("Longest word Count is:" + longestword);
-
-
     }
 }
